@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/base64"
 	"log"
+	"os"
 
 	"google.golang.org/genai"
 )
@@ -11,7 +12,7 @@ import (
 func Send(base string, prompt string) (string, error) {
 	//Создание клиента Gemini
 	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{})
+	client, err := genai.NewClient(ctx, &genai.ClientConfig{APIKey: os.Getenv("API_KEY")})
 	if err != nil {
 		log.Fatal(err)
 	}
