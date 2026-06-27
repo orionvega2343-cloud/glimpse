@@ -1,3 +1,8 @@
 .idea
 .env.env
 .idea/
+.env
+git rm --cached .env
+git add .gitignore
+git commit -m "remove .env from tracking"
+git push
